@@ -28,6 +28,15 @@
             "loginButton": "input[value='Login']",
             "registerLink": "a[data-test='register-link']",
             "forgetPasswordLink": ".ForgetPwd"
+        },
+        "checkout": {
+            "stepperIndicator": "ul[class*='steps-indicator']",
+            "nextStepOne": "[data-test='proceed-1']",
+            "nextStepTwo": "[data-test='proceed-2']",
+            "nextStepThree": "[data-test='proceed-3']",
+            "paymentOption": "select[data-test='payment-method'",
+            "accountName": "input[data-test='account-name']",
+            "accountNumber": "input[data-test='account-number']"
         }
     }
 }

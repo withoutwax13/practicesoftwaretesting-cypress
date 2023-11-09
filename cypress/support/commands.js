@@ -23,3 +23,41 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("quickBuyProduct", () => {
+  cy.intercept("GET", "https://api.practicesoftwaretesting.com/products/**").as(
+    "productClicked"
+  );
+  cy.intercept("POST", "https://api.practicesoftwaretesting.com/carts/**").as(
+    "succesfullyAddedToCart"
+  );
+  cy.visit("#");
+  cy.get(".card").first().click();
+  cy.wait("@productClicked").its("response.statusCode").should("eq", 200);
+  cy.url().should("include", "#/product");
+  cy.get("button[data-test*='add-to-cart']").click();
+  cy.wait("@succesfullyAddedToCart")
+    .its("response.statusCode")
+    .should("eq", 201);
+});
+
+Cypress.Commands.add("validLogin", () => {
+  const data = Cypress.env("data").login;
+  cy.visit("#/auth/login");
+  cy.url().should("include", "/auth/login");
+  cy.fixture("selectors.json").then((selectors) => {
+    const loginSelectors = selectors.pages.login;
+    cy.get(loginSelectors.emailGroup).find("input").clear();
+    cy.get(loginSelectors.emailGroup).type(data.valid.email);
+    cy.get(loginSelectors.passwordGroup).find("input").clear();
+    cy.get(loginSelectors.passwordGroup).type(data.valid.password);
+  });
+  cy.intercept(
+    "POST",
+    "https://api.practicesoftwaretesting.com/users/login"
+  ).as("succesfulLogin");
+  cy.fixture("selectors.json").then((selectors) => {
+    cy.get(selectors.pages.login.loginButton).click();
+  });
+  cy.url().should("include", "#/account");
+});
