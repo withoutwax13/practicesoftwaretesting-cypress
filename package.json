@@ -1,0 +1,17 @@
+{
+  "name": "practicesoftwaretesting-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "e2e-cli": "npx cypress run",
+    "e2e-gui": "npx cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.2.0",
+    "cypress": "^13.5.0"
+  }
+}

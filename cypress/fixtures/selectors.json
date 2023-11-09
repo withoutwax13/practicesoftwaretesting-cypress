@@ -1,0 +1,33 @@
+{
+    "pages": {
+        "registration": {
+            "container": "div[class*='auth-form']",
+            "title": "div[class*='auth-form'] > h3",
+            "form": "form[data-test='register-form']",
+            "firstNameGroup": "form[data-test='register-form'] > div > div:nth-child(1)",
+            "lastNameGroup": "form[data-test='register-form'] > div > div:nth-child(2)",
+            "dateOfBirthGroup": "form[data-test='register-form'] > div > div:nth-child(3)",
+            "addressGroup": "form[data-test='register-form'] > div > div:nth-child(4)",
+            "postCodeGroup": "form[data-test='register-form'] > div > div:nth-child(5)",
+            "cityGroup": "form[data-test='register-form'] > div > div:nth-child(6)",
+            "stateGroup": "form[data-test='register-form'] > div > div:nth-child(7)",
+            "countryGroup": "form[data-test='register-form'] > div > div:nth-child(8)",
+            "phoneGroup": "form[data-test='register-form'] > div > div:nth-child(9)",
+            "emailGroup": "form[data-test='register-form'] > div > div:nth-child(10)",
+            "passwordGroup": "form[data-test='register-form'] > div > div:nth-child(11)",
+            "submitButton": "button[data-test='register-submit']"
+        },
+        "login": {
+            "container":"div[class*='auth-container']",
+            "title": "div[class*='auth-container'] > div > div > h3",
+            "googleAuth": "button[class='google-sign-in-button']",
+            "lineSelector": ".separator",
+            "form": "form[data-test='login-form']",
+            "emailGroup": "form[data-test='login-form'] > div:nth-child(1)",
+            "passwordGroup":"form[data-test='login-form'] > div:nth-child(2)",
+            "loginButton": "input[value='Login']",
+            "registerLink": "a[data-test='register-link']",
+            "forgetPasswordLink": ".ForgetPwd"
+        }
+    }
+}
